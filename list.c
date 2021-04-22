@@ -16,6 +16,7 @@ typedef struct List
 List *list();
 Item *item(int value);
 Item *last(List *list);
+void append(List *list, int value);
 
 int main()
 {
@@ -56,4 +57,22 @@ Item *last(List *list)
     }
 
     return last_item;
+}
+
+void append(List *list, int value)
+{
+    Item *last_item = last(list);
+    Item *new_item = NULL;
+
+    if (last_item->isInitialItem == 1)
+    {
+        new_item = last_item;
+        new_item->value = value;
+        new_item->isInitialItem = 0;
+    }
+    else
+    {
+        new_item = item(value);
+        last_item->next = new_item;
+    }
 }
