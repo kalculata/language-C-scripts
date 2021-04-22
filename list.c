@@ -8,6 +8,11 @@ typedef struct Item
     Item *next;
 } Item;
 
+typedef struct List
+{
+    Item *firstItem;
+} List;
+
 int main()
 {
 }
