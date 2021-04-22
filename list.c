@@ -26,16 +26,13 @@ void shift(List *list);
 void printf_list(List *list);
 int count(List *list);
 int get_index(int index, List *list);
+Item *get_item(int index, List *list);
 int isEmpty(List *list);
 
 int main()
 {
     List *numbers = list();
-    append(numbers, 15);
-    append(numbers, 20);
-    append(numbers, 153);
-    unshift(numbers, 14);
-    printf_list(numbers);
+    append(numbers, 1);
     shift(numbers);
     printf_list(numbers);
 }
@@ -116,14 +113,41 @@ void unshift(List *list, int value)
 
 void pop(List *list)
 {
+    int list_length = count(list);
+
     Item *last_item = last(list);
+    if (list_length == 1)
+    {
+        last_item->isInitialItem = 1;
+        last_item->value = 0;
+        last_item->next = NULL;
+    }
+    else
+    {
+        Item *before_last = get_item(list_length - 2, list);
+
+        before_last->next = NULL;
+        free(last_item);
+    }
 }
 
 void shift(List *list)
 {
+    int list_length = count(list);
+
     Item *item_to_delete = list->first_item;
-    list->first_item = item_to_delete->next;
-    free(item_to_delete);
+
+    if (list_length == 1)
+    {
+        item_to_delete->isInitialItem = 1;
+        item_to_delete->value = 0;
+        item_to_delete->next = NULL;
+    }
+    else
+    {
+        list->first_item = item_to_delete->next;
+        free(item_to_delete);
+    }
 }
 
 void printf_list(List *list)
@@ -132,12 +156,12 @@ void printf_list(List *list)
 
     if (current_item->isInitialItem == 1)
     {
-        printf("[]\n");
+        printf("\n[]\n");
     }
 
     else
     {
-        printf("[");
+        printf("\n[");
         while (current_item->next != NULL)
         {
             printf("%d, ", current_item->value);
@@ -178,6 +202,18 @@ int get_index(int index, List *list)
     }
 
     return current_item->value;
+}
+
+Item *get_item(int index, List *list)
+{
+    Item *current_item = list->first_item;
+
+    for (int i = 0; i < index; i++)
+    {
+        current_item = current_item->next;
+    }
+
+    return current_item;
 }
 
 int isEmpty(List *list)
