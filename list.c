@@ -13,14 +13,15 @@ typedef struct List
     Item *firstItem;
 } List;
 
-List *initialize_list();
-Item *create_item(int value);
+List *list();
+Item *item(int value);
+Item *last(List *list);
 
 int main()
 {
 }
 
-List *initialize_list()
+List *list()
 {
     Item *initial_item = malloc(sizeof(Item *));
     List *initialized_list = malloc(sizeof(List *));
@@ -34,7 +35,7 @@ List *initialize_list()
     return initialized_list;
 }
 
-Item *create_item(int value)
+Item *item(int value)
 {
     Item *new_item = malloc(sizeof(Item *));
 
