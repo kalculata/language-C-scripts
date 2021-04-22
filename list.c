@@ -54,7 +54,30 @@ int isEmpty(List *list);
 
 int main()
 {
-    // use those functions here
+    // Example
+    /*
+    List *numbers = list();
+
+    unshift(numbers, 10);
+    unshift(numbers, 9);
+    unshift(numbers, 8);
+    unshift(numbers, 7);
+    unshift(numbers, 6);
+    unshift(numbers, 5);
+    unshift(numbers, 4);
+    unshift(numbers, 3);
+    unshift(numbers, 2);
+    unshift(numbers, 1);
+    unshift(numbers, 0);
+    unshift(numbers, -1);
+
+    printf_list(numbers);
+
+    pop(numbers);
+    shift(numbers);
+
+    printf_list(numbers);
+    */
 }
 
 // initialize a list
