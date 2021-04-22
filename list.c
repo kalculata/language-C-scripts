@@ -22,7 +22,7 @@ Item *last(List *list);
 void append(List *list, int value);
 void printf_list(List *list);
 int count(List *list);
-int index(List *list, int index);
+int get_index(int index, List *list);
 
 int main()
 {
@@ -32,6 +32,7 @@ int main()
     append(numbers, 153);
     printf_list(numbers);
     printf("\n%i\n", count(numbers));
+    printf("\nindex 0 = %i", get_index(0, list));
 }
 
 List *list()
@@ -131,6 +132,14 @@ int count(List *list)
     }
 }
 
-int index(List *list, int index)
+int get_index(int index, List *list)
 {
+    Item *current_item = list->first_item;
+
+    for (int i = 0; i < index; i++)
+    {
+        current_item = current_item->next;
+    }
+
+    return current_item->value;
 }
