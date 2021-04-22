@@ -1,28 +1,37 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct Item
+typedef struct Item Item;
+typedef struct List List;
+
+struct Item
 {
     int isInitialItem;
     int value;
     Item *next;
-} Item;
+};
 
-typedef struct List
+struct List
 {
     Item *first_item;
-} List;
+};
 
 List *list();
 Item *item(int value);
 Item *last(List *list);
 void append(List *list, int value);
 void printf_list(List *list);
+int count(List *list);
+int index(List *list, int index);
 
 int main()
 {
     List *numbers = list();
-    printf_list(list);
+    append(numbers, 15);
+    append(numbers, 20);
+    append(numbers, 153);
+    printf_list(numbers);
+    printf("\n%i\n", count(numbers));
 }
 
 List *list()
@@ -99,4 +108,29 @@ void printf_list(List *list)
         }
         printf("%i]", last(list)->value);
     }
+}
+
+int count(List *list)
+{
+    int length = 0;
+    Item *current_item = list->first_item;
+
+    if (current_item->isInitialItem == 1)
+    {
+        return 0;
+    }
+    else
+    {
+        while (current_item != NULL)
+        {
+            length++;
+
+            current_item = current_item->next;
+        }
+        return length;
+    }
+}
+
+int index(List *list, int index)
+{
 }
