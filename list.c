@@ -117,8 +117,6 @@ void unshift(List *list, int value)
 void pop(List *list)
 {
     Item *last_item = last(list);
-
-    free(last_item);
 }
 
 void shift(List *list)
