@@ -10,16 +10,19 @@ typedef struct Item
 
 typedef struct List
 {
-    Item *firstItem;
+    Item *first_item;
 } List;
 
 List *list();
 Item *item(int value);
 Item *last(List *list);
 void append(List *list, int value);
+void printf_list(List *list);
 
 int main()
 {
+    List *numbers = list();
+    printf_list(list);
 }
 
 List *list()
@@ -31,7 +34,7 @@ List *list()
     initial_item->value = 0;
     initial_item->next = NULL;
 
-    initialized_list->firstItem = initial_item;
+    initialized_list->first_item = initial_item;
 
     return initialized_list;
 }
@@ -49,7 +52,7 @@ Item *item(int value)
 
 Item *last(List *list)
 {
-    Item *last_item = list->firstItem;
+    Item *last_item = list->first_item;
 
     while (last_item->next != NULL)
     {
@@ -74,5 +77,26 @@ void append(List *list, int value)
     {
         new_item = item(value);
         last_item->next = new_item;
+    }
+}
+
+void printf_list(List *list)
+{
+    Item *current_item = list->first_item;
+
+    if (current_item->isInitialItem == 1)
+    {
+        printf("[]");
+    }
+
+    else
+    {
+        printf("[");
+        while (current_item->next != NULL)
+        {
+            printf("%d, ", current_item->value);
+            current_item = current_item->next;
+        }
+        printf("%i]", last(list)->value);
     }
 }
