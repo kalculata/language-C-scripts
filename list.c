@@ -20,9 +20,13 @@ List *list();
 Item *item(int value);
 Item *last(List *list);
 void append(List *list, int value);
+void unshift(List *list, int value);
+void pop(List *list);
+void shift(List *list);
 void printf_list(List *list);
 int count(List *list);
 int get_index(int index, List *list);
+int isEmpty(List *list);
 
 int main()
 {
@@ -31,8 +35,6 @@ int main()
     append(numbers, 20);
     append(numbers, 153);
     printf_list(numbers);
-    printf("\n%i\n", count(numbers));
-    printf("\nindex 0 = %i", get_index(0, list));
 }
 
 List *list()
@@ -90,6 +92,33 @@ void append(List *list, int value)
     }
 }
 
+void unshift(List *list, int value)
+{
+    Item *last_item = last(list);
+    Item *new_item = NULL;
+
+    if (last_item->isInitialItem == 1)
+    {
+        new_item = last_item;
+        new_item->value = value;
+        new_item->isInitialItem = 0;
+    }
+    else
+    {
+        Item *new_item = item(value);
+        new_item->next = list->first_item;
+        list->first_item = new_item;
+    }
+}
+
+void pop(List *list)
+{
+}
+
+void shift(List *list)
+{
+}
+
 void printf_list(List *list)
 {
     Item *current_item = list->first_item;
@@ -142,4 +171,18 @@ int get_index(int index, List *list)
     }
 
     return current_item->value;
+}
+
+int isEmpty(List *list)
+{
+    Item *last_item = last(list);
+
+    if (last_item->isInitialItem == 1)
+    {
+        return 1;
+    }
+    else
+    {
+        return 0;
+    }
 }
