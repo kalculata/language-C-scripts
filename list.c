@@ -1,3 +1,24 @@
+/*
+this script help to manage a list in C language
+
+Functions
+---------
+- List *list()                          : initialize a list
+- List *item(int value)                 : save item in memory before add it in the list
+- Item *last(List *list)                : get last item of the list
+- Item *get_item(int index, List *list) : get item with index
+
+- void append(List *list, int value)    : add item at end of the list
+- void unshift(List *list, int value)   : add item at begin of the list
+- void pop(List *list)                  : remove item at end of the list
+- void shift(List *list)                : remove item at begin of the list
+- void printf_list(List *list)          : display all items of the list
+
+- int count(List *list)                 : count numbers of items in a list
+- int get_index(int index, List *list)  : get value of item with index
+- int isEmpty(List *list)               : check if a list is empty (return 1 if it is empty or 0 if it is not empty)
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -19,24 +40,24 @@ struct List
 List *list();
 Item *item(int value);
 Item *last(List *list);
+Item *get_item(int index, List *list);
+
 void append(List *list, int value);
 void unshift(List *list, int value);
 void pop(List *list);
 void shift(List *list);
 void printf_list(List *list);
+
 int count(List *list);
 int get_index(int index, List *list);
-Item *get_item(int index, List *list);
 int isEmpty(List *list);
 
 int main()
 {
-    List *numbers = list();
-    append(numbers, 1);
-    shift(numbers);
-    printf_list(numbers);
+    // use those functions here
 }
 
+// initialize a list
 List *list()
 {
     Item *initial_item = malloc(sizeof(Item *));
@@ -51,6 +72,7 @@ List *list()
     return initialized_list;
 }
 
+// save item in memory before add it in the list
 Item *item(int value)
 {
     Item *new_item = malloc(sizeof(Item *));
@@ -62,6 +84,7 @@ Item *item(int value)
     return new_item;
 }
 
+// get last item of the list
 Item *last(List *list)
 {
     Item *last_item = list->first_item;
@@ -74,6 +97,20 @@ Item *last(List *list)
     return last_item;
 }
 
+// get item with index
+Item *get_item(int index, List *list)
+{
+    Item *current_item = list->first_item;
+
+    for (int i = 0; i < index; i++)
+    {
+        current_item = current_item->next;
+    }
+
+    return current_item;
+}
+
+// add item at end of the list
 void append(List *list, int value)
 {
     Item *last_item = last(list);
@@ -92,6 +129,7 @@ void append(List *list, int value)
     }
 }
 
+// add item at begin of the list
 void unshift(List *list, int value)
 {
     Item *last_item = last(list);
@@ -111,6 +149,7 @@ void unshift(List *list, int value)
     }
 }
 
+// remove item at end of the list
 void pop(List *list)
 {
     int list_length = count(list);
@@ -131,6 +170,7 @@ void pop(List *list)
     }
 }
 
+// remove item at begin of the list
 void shift(List *list)
 {
     int list_length = count(list);
@@ -150,6 +190,7 @@ void shift(List *list)
     }
 }
 
+// display all items of the list
 void printf_list(List *list)
 {
     Item *current_item = list->first_item;
@@ -171,6 +212,7 @@ void printf_list(List *list)
     }
 }
 
+// count numbers of items in a list
 int count(List *list)
 {
     int length = 0;
@@ -192,6 +234,7 @@ int count(List *list)
     }
 }
 
+// get value of item with index
 int get_index(int index, List *list)
 {
     Item *current_item = list->first_item;
@@ -204,18 +247,7 @@ int get_index(int index, List *list)
     return current_item->value;
 }
 
-Item *get_item(int index, List *list)
-{
-    Item *current_item = list->first_item;
-
-    for (int i = 0; i < index; i++)
-    {
-        current_item = current_item->next;
-    }
-
-    return current_item;
-}
-
+// check if a list is empty (return 1 if it is empty or 0 if it is not empty)
 int isEmpty(List *list)
 {
     Item *last_item = last(list);
