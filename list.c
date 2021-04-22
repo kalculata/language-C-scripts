@@ -14,6 +14,7 @@ typedef struct List
 } List;
 
 List *initialize_list();
+Item *create_item(int value);
 
 int main()
 {
@@ -31,4 +32,15 @@ List *initialize_list()
     initialized_list->firstItem = initial_item;
 
     return initialized_list;
+}
+
+Item *create_item(int value)
+{
+    Item *new_item = malloc(sizeof(Item *));
+
+    new_item->isInitialItem = 0;
+    new_item->value = value;
+    new_item->next = NULL;
+
+    return new_item;
 }
