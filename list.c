@@ -34,6 +34,9 @@ int main()
     append(numbers, 15);
     append(numbers, 20);
     append(numbers, 153);
+    unshift(numbers, 14);
+    printf_list(numbers);
+    shift(numbers);
     printf_list(numbers);
 }
 
@@ -113,10 +116,16 @@ void unshift(List *list, int value)
 
 void pop(List *list)
 {
+    Item *last_item = last(list);
+
+    free(last_item);
 }
 
 void shift(List *list)
 {
+    Item *item_to_delete = list->first_item;
+    list->first_item = item_to_delete->next;
+    free(item_to_delete);
 }
 
 void printf_list(List *list)
@@ -125,7 +134,7 @@ void printf_list(List *list)
 
     if (current_item->isInitialItem == 1)
     {
-        printf("[]");
+        printf("[]\n");
     }
 
     else
@@ -136,7 +145,7 @@ void printf_list(List *list)
             printf("%d, ", current_item->value);
             current_item = current_item->next;
         }
-        printf("%i]", last(list)->value);
+        printf("%i]\n", last(list)->value);
     }
 }
 
