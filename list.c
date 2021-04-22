@@ -45,3 +45,15 @@ Item *item(int value)
 
     return new_item;
 }
+
+Item *last(List *list)
+{
+    Item *last_item = list->firstItem;
+
+    while (last_item->next != NULL)
+    {
+        last_item = last_item->next;
+    }
+
+    return last_item;
+}
