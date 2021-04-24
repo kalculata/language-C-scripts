@@ -1,5 +1,5 @@
 /*
-this script help to manage a list in C language
+here are some functions that help to manage lists of only integer in C language
 
 Functions
 ---------
@@ -19,66 +19,9 @@ Functions
 - int isEmpty(List *list)               : check if a list is empty (return 1 if it is empty or 0 if it is not empty)
 */
 
-#include <stdlib.h>
 #include <stdio.h>
-
-typedef struct Item Item;
-typedef struct List List;
-
-struct Item
-{
-    int isInitialItem;
-    int value;
-    Item *next;
-};
-
-struct List
-{
-    Item *first_item;
-};
-
-List *list();
-Item *item(int value);
-Item *last(List *list);
-Item *get_item(int index, List *list);
-
-void append(List *list, int value);
-void unshift(List *list, int value);
-void pop(List *list);
-void shift(List *list);
-void printf_list(List *list);
-
-int count(List *list);
-int get_index(int index, List *list);
-int isEmpty(List *list);
-
-int main()
-{
-    // Example
-    /*
-    List *numbers = list();
-
-    unshift(numbers, 10);
-    unshift(numbers, 9);
-    unshift(numbers, 8);
-    unshift(numbers, 7);
-    unshift(numbers, 6);
-    unshift(numbers, 5);
-    unshift(numbers, 4);
-    unshift(numbers, 3);
-    unshift(numbers, 2);
-    unshift(numbers, 1);
-    unshift(numbers, 0);
-    unshift(numbers, -1);
-
-    printf_list(numbers);
-
-    pop(numbers);
-    shift(numbers);
-
-    printf_list(numbers);
-    */
-}
+#include <stdlib.h>
+#include "list.h"
 
 // initialize a list
 List *list()
@@ -228,10 +171,10 @@ void printf_list(List *list)
         printf("\n[");
         while (current_item->next != NULL)
         {
-            printf("%d, ", current_item->value);
+            printf("%i, ", current_item->value);
             current_item = current_item->next;
         }
-        printf("%i]\n", last(list)->value);
+        printf("%d]\n", last(list)->value);
     }
 }
 
