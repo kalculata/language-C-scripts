@@ -1,8 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "list.c"
-#include "string.h"
-#include "io.c"
+#include "lib/list.c"
+#include "lib/io.c"
 
 int main()
 {

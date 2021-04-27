@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "io.h"
+#include "headers/io.h"
 
 // ask user to enter an integer with message (return int)
 int inputInt(char *message)
