@@ -1,11 +1,20 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "list.c"
+#include "string.h"
+#include "io.c"
 
 int main()
 {
-    // Example
-    int i, t;
+    //Example about input and output
+    int a = inputInt("Enter la valeur de a: ");
+    printf("\na = %i", a);
+
+    float b = inputFloat("Enter la valeur de b: ");
+    printf("b = %f", b);
+
+    // Example about list
+    /*int i, t;
 
     int taille;
     List *vecteur = list();
@@ -21,5 +30,5 @@ int main()
     }
     printf("vecteur = ");
 
-    printf_list(vecteur);
+    printf_list(vecteur);*/
 }

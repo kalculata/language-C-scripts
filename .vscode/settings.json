@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.twig": "twig",
+        "string.h": "c"
+    }
+}
