@@ -2,15 +2,14 @@
 #include <stdio.h>
 #include "lib/list.c"
 #include "lib/io.c"
+#include "lib/matrix.c"
 
 int main()
 {
-    //Example about input and output
-    int a = inputInt("Enter la valeur de a: ");
-    printf("\na = %i", a);
 
-    float b = inputFloat("Enter la valeur de b: ");
-    printf("b = %f", b);
+    int matrix[3][3] = {{0}};
+    ones_matrix(3, matrix);
+    printf_matrix(3, matrix);
 
     // Example about list
     /*int i, t;
