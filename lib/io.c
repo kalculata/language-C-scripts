@@ -5,7 +5,7 @@
 int inputInt(char *message)
 {
     int number;
-    printf("\n%s", message);
+    printf("%s", message);
     scanf("%i", &number);
     return number;
 }

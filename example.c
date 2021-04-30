@@ -1,14 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "lib/list.c"
-#include "lib/io.c"
 #include "lib/matrix.c"
 
 int main()
 {
 
     int matrix[3][3] = {{0}};
-    ones_matrix(3, matrix);
+    input_matrix(3, matrix);
     printf_matrix(3, matrix);
 
     // Example about list
