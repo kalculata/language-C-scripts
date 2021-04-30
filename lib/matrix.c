@@ -13,6 +13,10 @@ int matrix_diff(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
                 int matrix1[sizeX1][sizeY1],
                 int matrix2[sizeX2][sizeY2],
                 int sum[sizeX1][sizeY1]);
+int matrix_prod(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
+                int matrix1[sizeX1][sizeY1],
+                int matrix2[sizeX2][sizeY2],
+                int prod[sizeX1][sizeY2]);
 
 void ones_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY])
 {
@@ -35,7 +39,7 @@ void printf_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *title)
     {
         for (j = 0; j < sizeY; j++)
         {
-            printf("%i  ", matrix[i][j]);
+            printf("%i      ", matrix[i][j]);
         }
         printf("\n");
     }
@@ -100,4 +104,11 @@ int matrix_diff(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
     }
 
     return 1;
+}
+
+int matrix_prod(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
+                int matrix1[sizeX1][sizeY1],
+                int matrix2[sizeX2][sizeY2],
+                int prod[sizeX1][sizeY2])
+{
 }

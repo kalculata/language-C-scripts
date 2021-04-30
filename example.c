@@ -9,16 +9,22 @@ int main()
     // Example for matrix
     int size = inputInt("Enter the number of rows and column for your matrix A and B: ");
 
-    int A[size][size], B[size][size], sum[size][size];
+    int A[size][size], B[size][size], sum[size][size], result;
     input_matrix(size, size, A, "Enter matrix A");
     input_matrix(size, size, B, "Enter matrix B");
 
     printf_matrix(size, size, A, "Matrix A");
     printf_matrix(size, size, B, "Matrix B");
 
-    int result = matrix_sum(size, size, size, size, A, B, sum);
+    result = matrix_sum(size, size, size, size, A, B, sum);
     if (result == 1)
         printf_matrix(size, size, sum, "Matrix(A+B)");
+    else
+        printf("Row or Column of your matrix are not equal\n");
+
+    result = matrix_diff(size, size, size, size, A, B, sum);
+    if (result == 1)
+        printf_matrix(size, size, sum, "Matrix(A-B)");
     else
         printf("Row or Column of your matrix are not equal\n");
 
