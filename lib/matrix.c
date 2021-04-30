@@ -111,22 +111,22 @@ int matrix_prod(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
                 int matrix2[sizeX2][sizeY2],
                 int prod[sizeX1][sizeY2])
 {
-    int t;
+    int i, j, k, t;
 
     if (sizeY1 != sizeX2)
         return 0;
 
-    for (int i = 0; i < sizeX1, i++)
+    for (i = 0; i < sizeX1; i++)
     {
-        for (int j = 0; j < sizeY2; j++)
+        for (j = 0; j < sizeY2; j++)
         {
             t = 0;
-            for (int k = 0; k < sizeX2; k++)
+            for (k = 0; k < sizeX2; k++)
             {
-                t = t + (matrix1[i][k] * matrix[k][j]);
+                t = t + (matrix1[i][k] * matrix2[k][j]);
             }
+            prod[i][j] = t;
         }
-        prod[i][j] = t;
-    }
+        }
     return 1;
 }
