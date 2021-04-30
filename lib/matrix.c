@@ -5,7 +5,8 @@
 void ones_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY]);
 void printf_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *title);
 void input_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *message);
-int matrix_sum(int sizesX[], int sizesY[], int matrix1[sizesX[0]][sizesY[0]], int matrix2[sizesX[1]][sizesY[1]]);
+int matrix_sum(int sizesX[], int sizesY[], int matrix1[sizesX[0]][sizesY[0]], int matrix2[sizesX[1]][sizesY[1]],
+               int sum[sizesX[0]][sizesY[0]]);
 
 void ones_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY])
 {
@@ -53,10 +54,21 @@ void input_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *message)
     }
 }
 
-int matrix_sum(int sizesX[], int sizesY[], int matrix1[sizesX[0]][sizesY[0]], int matrix2[sizesX[1]][sizesY[1]])
+int matrix_sum(int sizesX[], int sizesY[], int matrix1[sizesX[0]][sizesY[0]], int matrix2[sizesX[1]][sizesY[1]],
+               int sum[sizesX[0]][sizesY[0]])
 {
+    int i, j;
+
     if (sizesX[0] != sizesX[1] || sizesY[0] != sizesY[1])
-    {
         return 0;
+
+    for (i = 0; i < sizesX[0]; i++)
+    {
+        for (j = 0; j < sizesY[0]; j++)
+        {
+            sum[i][j] = matrix1[i][j] + matrix2[i][j];
+        }
     }
+
+    return 1;
 }
