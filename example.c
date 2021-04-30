@@ -27,7 +27,7 @@ int main()
         scanf("%i", &t);
         append(vecteur, t);
     }
-    printf("vecteur = ");
+    printf("vecteur : ");
 
     printf_list(vecteur);*/
 }
