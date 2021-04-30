@@ -22,7 +22,7 @@ void printf_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *title)
 {
     int i, j;
 
-    printf("%s: \n", title);
+    printf("\n%s: \n", title);
     for (i = 0; i < sizeX; i++)
     {
         for (j = 0; j < sizeY; j++)
@@ -38,7 +38,7 @@ void input_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *message)
     int i, j;
     char input_message[100];
 
-    printf("%s: \n", message);
+    printf("%s: \n\n", message);
 
     for (i = 0; i < sizeX; i++)
     {
