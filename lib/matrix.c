@@ -9,6 +9,10 @@ int matrix_sum(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
                int matrix1[sizeX1][sizeY1],
                int matrix2[sizeX2][sizeY2],
                int sum[sizeX1][sizeY1]);
+int matrix_diff(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
+                int matrix1[sizeX1][sizeY1],
+                int matrix2[sizeX2][sizeY2],
+                int sum[sizeX1][sizeY1]);
 
 void ones_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY])
 {
@@ -71,6 +75,27 @@ int matrix_sum(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
         for (j = 0; j < sizeY1; j++)
         {
             sum[i][j] = matrix1[i][j] + matrix2[i][j];
+        }
+    }
+
+    return 1;
+}
+
+int matrix_diff(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
+                int matrix1[sizeX1][sizeY1],
+                int matrix2[sizeX2][sizeY2],
+                int sum[sizeX1][sizeY1])
+{
+    int i, j;
+
+    if (sizeX1 != sizeX2 || sizeY1 != sizeY2)
+        return 0;
+
+    for (i = 0; i < sizeX1; i++)
+    {
+        for (j = 0; j < sizeY1; j++)
+        {
+            sum[i][j] = matrix1[i][j] - matrix2[i][j];
         }
     }
 

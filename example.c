@@ -16,11 +16,11 @@ int main()
     printf_matrix(size, size, A, "Matrix A");
     printf_matrix(size, size, B, "Matrix B");
 
-    int sizes = {size, size};
-
-    int a = matrix_sum(sizes, sizes, A, B, sum);
-    printf("resultat : %i", a);
-    printf_matrix(size, size, sum, "Sum of A and B matrix");
+    int result = matrix_sum(size, size, size, size, A, B, sum);
+    if (result == 1)
+        printf_matrix(size, size, sum, "Matrix(A+B)");
+    else
+        printf("Row or Column of your matrix are not equal\n");
 
     // Example about list
     /*int i, t;
