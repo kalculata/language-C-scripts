@@ -6,9 +6,15 @@
 int main()
 {
 
-    int matrix[3][3] = {{0}};
-    input_matrix(3, matrix);
-    printf_matrix(3, matrix);
+    // Example for matrix
+    int size = inputInt("Enter the number of rows and column for your matrix A and B: ");
+
+    int A[size][size], B[size][size], C[size][size];
+    input_matrix(size, size, A, "Enter matrix A");
+    input_matrix(size, size, B, "Enter matrix B");
+
+    printf_matrix(size, size, A, "Matrix A");
+    printf_matrix(size, size, B, "Matrix B");
 
     // Example about list
     /*int i, t;
