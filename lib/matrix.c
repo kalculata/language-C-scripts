@@ -5,6 +5,7 @@
 void ones_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY]);
 void printf_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *title);
 void input_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *message);
+int matrix_sum(int sizesX[], int sizesY[], int matrix1[sizesX[0]][sizesY[0]], int matrix2[sizesX[1]][sizesY[1]]);
 
 void ones_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY])
 {
@@ -31,6 +32,7 @@ void printf_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *title)
         }
         printf("\n");
     }
+    printf("\n");
 }
 
 void input_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *message)
@@ -38,7 +40,7 @@ void input_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *message)
     int i, j;
     char input_message[100];
 
-    printf("%s: \n\n", message);
+    printf("\n%s: \n\n", message);
 
     for (i = 0; i < sizeX; i++)
     {
@@ -48,5 +50,13 @@ void input_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *message)
             matrix[i][j] = inputInt(input_message);
         }
         printf("\n");
+    }
+}
+
+int matrix_sum(int sizesX[], int sizesY[], int matrix1[sizesX[0]][sizesY[0]], int matrix2[sizesX[1]][sizesY[1]])
+{
+    if (sizesX[0] != sizesX[1] || sizesY[0] != sizesY[1])
+    {
+        return 0;
     }
 }
