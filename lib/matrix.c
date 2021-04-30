@@ -2,17 +2,23 @@
 #include <string.h>
 #include "io.c"
 
+// generate matrix fill with 1
 void ones_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY]);
+// display content of matrix
 void printf_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *title);
+// ask user to complete values of matrix
 void input_matrix(int sizeX, int sizeY, int matrix[sizeX][sizeY], char *message);
+// calculate sum of two matrix A and B
 int matrix_sum(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
                int matrix1[sizeX1][sizeY1],
                int matrix2[sizeX2][sizeY2],
                int sum[sizeX1][sizeY1]);
+// calculate difference between two matrix A and B
 int matrix_diff(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
                 int matrix1[sizeX1][sizeY1],
                 int matrix2[sizeX2][sizeY2],
                 int sum[sizeX1][sizeY1]);
+// calculate product of two matrix A and B
 int matrix_prod(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
                 int matrix1[sizeX1][sizeY1],
                 int matrix2[sizeX2][sizeY2],
@@ -127,6 +133,6 @@ int matrix_prod(int sizeX1, int sizeX2, int sizeY1, int sizeY2,
             }
             prod[i][j] = t;
         }
-        }
+    }
     return 1;
 }
